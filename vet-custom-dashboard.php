@@ -15,7 +15,7 @@ if( ! class_exists( 'vet_dashboard' ) ){
 }
 
 $updater = new vet_updater( __FILE__ );
-$updater->set_username( 'Bureau-Vet' );
+$updater->set_username( 'bureau-vet' );
 $updater->set_repository( 'vet-custom-dashboard' );
 /*
 	$updater->authorize( 'abcdefghijk1234567890' ); // Your auth code goes here for private repos
