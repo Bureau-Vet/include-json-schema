@@ -24,4 +24,3 @@ $updater->initialize();
 
 
 $dashboard = new vet_dashboard(__FILE__);
-//$dashboard = initialize();

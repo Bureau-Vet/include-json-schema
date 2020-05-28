@@ -1,8 +1,6 @@
 <?php
 class vet_dashboard {
 
-  private $date;
-
   public function __construct( $file ) {
     $this->file = $file;
 
