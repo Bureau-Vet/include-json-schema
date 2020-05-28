@@ -1,47 +1,26 @@
 <?php
-class vet_dashboard {
-
-  public function __construct( $file ) {
-    $this->file = $file;
-
-    remove_action( 'welcome_panel', 'wp_welcome_panel' );
-
-    add_action('wp_dashboard_setup', [ $this , 'remove_dashboard_widgets'] );
-    add_action( 'wp_dashboard_setup', [ $this, 'vet_dashboard_news' ] );
-
-    return $this;
-  }
-
-  public function vet_dashboard_news() {
-  	wp_add_dashboard_widget(
-  		'vet_news',   // Widget slug.
-  		'Vet Talks',  // Title.
-  		[ $this, 'vet_dashboard_vettalks' ]  // Display function.
-      );
-  }
-
-  /* Add Vet Talks information */
-  public function vet_dashboard_vettalks() {
-    $this->vet_dashboard_news_message(
-      'Groeien met Inbound Marketing 2',
-      '15 juni 2020',
-      '14:00',
-      'Deze keer hebben we het samen met &Content over Inbound marketing. ',
-      'https://bureauvet.nl/vettalks'
-    );
-  }
-
-  public function vet_dashboard_news_message($title, $date, $time, $desc, $registration_url) {
-      echo '<h2>' . $title . '</h2>';
-      echo '<p>Op ' . $date . ', ' . $time . ' organiseren wij de volgende Vet Talks!';
-      echo '<p>' . $desc . '</p>';
-      echo '<a href="' . $registration_url . '" class="button" target="_blank">Registreer nu!</a>';
-  }
-
-  /* Remove everything from the dashboard */
-  public function remove_dashboard_widgets() {
-    global $wp_meta_boxes;
-    unset($wp_meta_boxes['dashboard']);
-  }
-
+/*
+	Plugin Name: Include custom WP Dashboard
+	Description: Adds Vet Wigets for events, news and welcome message.
+	Version: 0.0.5
+	Author: Bureau Vet
+	Author URI: http://www.bureauvet.nl
+*/
+if( ! class_exists( 'vet_updater' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
+
+if( ! class_exists( 'vet_dashboard' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . 'custom-dashboard.php' );
+}
+
+$updater = new vet_updater( __FILE__ );
+$updater->set_username( 'bureauvet' );
+$updater->set_repository( 'vet-custom-dashboard' );
+/*
+	$updater->authorize( 'abcdefghijk1234567890' ); // Your auth code goes here for private repos
+*/
+$updater->initialize();
+
+
+$dashboard = new vet_dashboard(__FILE__);
