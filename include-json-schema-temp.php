@@ -1,6 +1,6 @@
 <?php
 /*
-	Plugin Name: Include custom JSON schema
+	Plugin Name: Include custom JSON schema 2
 	Description: Include custom JSON schema to your website's head.
 	Version: 0.0.1
 	Author: Bureau Vet
