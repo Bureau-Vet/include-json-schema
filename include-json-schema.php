@@ -6,11 +6,11 @@
 	Author: Bureau Vet
 	Author URI: http://www.bureauvet.nl
 */
-if( ! class_exists( 'Smashing_Updater' ) ){
+if( ! class_exists( 'vet_updater' ) ){
 	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
 
-$updater = new Smashing_Updater( __FILE__ );
+$updater = new vet_updater( __FILE__ );
 $updater->set_username( 'Bureau-vet' );
 $updater->set_repository( 'include-json-schema' );
 /*
