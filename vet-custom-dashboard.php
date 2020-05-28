@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Include custom WP Dashboard
 	Description: Adds Vet Wigets for events, news and welcome message.
-	Version: 0.0.4
+	Version: 0.0.5
 	Author: Bureau Vet
 	Author URI: http://www.bureauvet.nl
 */

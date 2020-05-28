@@ -14,18 +14,16 @@ class vet_dashboard {
 
   public function vet_dashboard_news() {
   	wp_add_dashboard_widget(
-  		'vet_news',         			// Widget slug.
-  		'Vet Talks',         		// Title.
+  		'vet_news',   // Widget slug.
+  		'Vet Talks',  // Title.
   		[ $this, 'vet_dashboard_vettalks' ]  // Display function.
       );
   }
 
-  /* Add Vet Talks cntent */
-
-
+  /* Add Vet Talks information */
   public function vet_dashboard_vettalks() {
     $this->vet_dashboard_news_message(
-      'Groeien met Inbound Marketing',
+      'Groeien met Inbound Marketing 2',
       '15 juni 2020',
       '14:00',
       'Deze keer hebben we het samen met &Content over Inbound marketing. ',
